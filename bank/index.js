@@ -2,7 +2,6 @@ import {login, cadastrar, sacar, transferir, verSaldo} from "./src/services/func
 import PromptSync from "prompt-sync";
 const prompt = PromptSync();
 
-
 function menuPrincipal(){
     
     while(true){
