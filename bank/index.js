@@ -1,10 +1,10 @@
-import {login, cadastrar, sacar, transferir, verSaldo} from "./src/services/func.js";
+import {login, cadastrar, sacar, transferir, verSaldo, contaAtual, logout} from "./src/controllers/func.js";
 import PromptSync from "prompt-sync";
 const prompt = PromptSync();
 
 function menuPrincipal(){
     
-    while(true){
+    while (true){
     
     console.log("1 - CADASTRO");
     console.log("2 - LOGIN");
@@ -24,9 +24,9 @@ function menuPrincipal(){
             break;
         case "2":
             let nomeLogin = prompt("Insira seu nome: ('#' para voltar)").toUpperCase();
-            if(nomeLogin === '#') return null;
+            if (nomeLogin === '#') return null;
             const cpfLogin = prompt("Insira seu cpf: ('#' para voltar)");
-            if(cpfLogin === '#') return null;
+            if (cpfLogin === '#') return null;
             const resultadoLogin = login(nomeLogin, cpfLogin);
             if (resultadoLogin.sucesso) {
                 console.log("Sucesso ao logar:",resultadoLogin.user);
@@ -46,7 +46,7 @@ function menuPrincipal(){
 }
 
 function menuBanco (usuario) {
-    while (true) {
+    while (contaAtual) {
     console.log("1 - VER SALDO");
     console.log("2 - TRANSFERIR");
     console.log("3 - SACAR");
@@ -73,12 +73,12 @@ function menuBanco (usuario) {
             if (resultadoSaque.sucesso) {
                 console.log("Sucesso no saque de", valorSaque);
                 console.log("Novo saldo de: ",resultadoSaque.novoSaldo);
-            }else{
+            } else{
                 console.log("Erro ao sacar", resultadoSaque.erro)
             }
             break;
         case "0":
-            return;
+            logout();
         default:
             break;
         }
@@ -87,7 +87,7 @@ function menuBanco (usuario) {
 function main(){
     while (true) {
         const usuario = menuPrincipal();
-        if(!usuario) continue; // pra quando digitar #
+        if (!usuario) continue; // pra quando digitar #
         menuBanco(usuario);
     }
 }

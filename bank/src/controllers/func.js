@@ -1,6 +1,6 @@
 import { cadastrados } from "../repository/database.js";
-import PromptSync from "prompt-sync";
-const prompt = PromptSync();
+
+export let contaAtual = null;
 
 export const cadastrar = (nome, cpf) =>{
     const user = {name: nome, cpf: cpf, saldo: 0};
@@ -9,12 +9,17 @@ export const cadastrar = (nome, cpf) =>{
 }
 
 export const login = (nome, cpf) =>{
-        const usuarioLogado = cadastrados.find(n => n.name === nome && n.cpf === cpf);
-        if (usuarioLogado){
-            return {sucesso: true, user: usuarioLogado};
+        contaAtual = cadastrados.find(n => n.name === nome && n.cpf === cpf);
+        if (contaAtual){
+            return {sucesso: true, user: contaAtual};
         } else{
             return {sucesso: false, erro: "Erro ao logar usuario"};
         }   
+}
+
+export const logout = () =>{
+   contaAtual = null;
+   return {sucesso: true, user: contaAtual};
 }
 
 export const sacar = (valor, user) =>{
