@@ -79,6 +79,7 @@ function menuBanco (usuario) {
             break;
         case "0":
             logout();
+            return;
         default:
             break;
         }
