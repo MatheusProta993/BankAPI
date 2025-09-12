@@ -1,4 +1,4 @@
-import { cadastrar, login, logout } from "./src/backend/services/AuthService.js";
+import { cadastrar, login, logout } from "./src/backend/services/authService.js";
 const cadastrarController = cadastrar();
 const loginController = login();
 const logoutController = logout();

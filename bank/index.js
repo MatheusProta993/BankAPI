@@ -1,6 +1,6 @@
-import {login, cadastrar, logout, contaAtual} from "./src/backend/services/AuthService.js";
-import { verSaldo } from "./src/backend/services/saldoService.js";
-import { sacar, transferir } from "./src/backend/services/transferenciasService.js";
+import {login, cadastrar, logout, contaAtual} from "./src/backend/controllers/authController.js";
+import { verSaldo } from "./src/backend/controllers/saldoController.js";
+import { sacar, transferir } from "./src/backend/controllers/transferenciasController.js";
 import PromptSync from "prompt-sync";
 const prompt = PromptSync();
 
