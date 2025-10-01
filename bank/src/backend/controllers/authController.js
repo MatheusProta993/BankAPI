@@ -12,5 +12,5 @@ export const login = (nome, cpf) =>{
 }
 
 export const logout = () =>{
-   return  logoutController.logout();
+   return logoutController.logout();
 }
