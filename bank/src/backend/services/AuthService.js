@@ -1,15 +1,15 @@
-import { cadastrados } from "../repository/database.js";
+import { cadastrados as cadastradosDB} from "../repository/database.js";
 
 export let contaAtual = null;
 
 export const cadastrar = (nome, cpf) =>{
     const user = {name: nome, cpf: cpf, saldo: 0};
-    cadastrados.push(user);
+    cadastradosDB.push(user);
     return {sucesso: true, user};
 }
 
 export const login = (nome, cpf) =>{
-        contaAtual = cadastrados.find(n => n.name === nome && n.cpf === cpf);
+        contaAtual = cadastradosDB.find(n => n.name === nome && n.cpf === cpf);
         if (contaAtual){
             return {sucesso: true, user: contaAtual};
         } else{
