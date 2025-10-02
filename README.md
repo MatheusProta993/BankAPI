@@ -87,3 +87,5 @@ As respostas da API retornam mensagens de sucesso ou erro de cada operação.
 - Suporte a múltiplas moedas ou múltiplas contas por usuário
 
 - Melhoria das transferências oferecidas
+
+- Adicional de uma API externa para investimentos fictícios
