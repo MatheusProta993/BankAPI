@@ -1,6 +1,5 @@
-import { verSaldo as verSaldoService } from "./src/backend/services/saldoService.js";
-const verSaldoController = verSaldoService();
+import { verSaldo as verSaldoService } from "../services/saldoService.js";
 
 export const verSaldo = (user) =>{
-    return verSaldoController.verSaldo(user);
+    return verSaldoService(user);
 }

@@ -1,16 +1,10 @@
-import { cadastrar as cadastrarService, login as loginService, logout as logoutService} from "./src/backend/services/authService.js";
-const cadastrarController = cadastrarService();
-const loginController = loginService();
-const logoutController = logoutService();
+import { cadastrar as cadastrarService, login as loginService} from "../services/authService.js";
 
 export const cadastrar = (nome, cpf) =>{
-    return cadastrarController.cadastrar(nome, cpf);
-}
+    return cadastrarService(nome, cpf);
+};
 
 export const login = (nome, cpf) =>{
-    return loginController.login(nome, cpf);  
-}
+    return loginService(nome, cpf);  
+};
 
-export const logout = () =>{
-   return logoutController.logout();
-}
